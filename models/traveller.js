@@ -31,13 +31,26 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
   }, 0);
 };
 
-Traveller.prototype.getUniqueModesOfTransport = function () {
-  let uniqueTransport = function(value, index, self) {
-    return self.indexOf(value) === index;
-  };
+// Traveller.prototype.getUniqueModesOfTransport = function () {
+//   let uniqueTransport = function(value, index, self) {
+//     return self.indexOf(value) === index;
+//   };
+//
+//   transportArray = this.journeys.map((journey) => journey.transport);
+//   return transportArray.filter(uniqueTransport);
+//   };
 
-  transportArray = this.journeys.map((journey) => journey.transport);
-  return transportArray.filter(uniqueTransport);
+  ///HOMEWORK REVUE ANSWER/////////
+
+  Traveller.prototype.getUniqueModesOfTransport = function () {
+    const transports = this.journeys.map((journey) => {
+      return journey.transport;
+    });
+
+    return transports.filter((transport, index) => {
+      return transports.indexOf(transport) === index;
+    });
+
   };
 
 
